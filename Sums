@@ -1,0 +1,84 @@
+print "Several problems on geometry" 
+
+figure = raw_input("Select a shape (1-rectangle, 2-triangle, 3-circle): ")
+# In accordance with the selected shape observed conventional design (if)
+# The input values of the parties, they have type float
+if figure == '1':
+	print("Enter the length of the rectangle:")
+	a = float(raw_input("a = "))
+	b = float(raw_input("b = "))
+	print("Square : %.2f" % (a*b)) # Print a value of type float accurate within 2 mark 2
+elif figure == '2':
+	print("The length of the sides of a triangle:")
+	a = float(raw_input("a = "))
+	b = float(raw_input("b = "))
+	c = float(raw_input("c = "))
+	p = (a + b + c) / 2
+	import math # We need a math. Connect the library
+	s = math.sqrt(p * (p - a) * (p - b) * (p - c))
+	print("Square: %.2f" % s) 
+elif figure == '3':
+	r = float(input("The radius of the circle R = "))
+	import math
+	print("Square: %.2f" % (math.pi*r**2))
+else:
+	print("Input error")
+print
+
+import math
+
+print("Enter the coordinates of a point and the radius of the circle")
+x = float(raw_input("x = "))
+y = float(raw_input("y = "))
+r = float(raw_input("R = "))
+
+r_xy = math.sqrt(x**2 + y**2)
+# From the equation of a circle to the facilities point of a circle 
+if r_xy <= r: 
+	print("The point belongs to the circle")
+else:
+	print("The point does not belong to the circle")
+print
+
+import math
+
+n = raw_input("The number of dimensions of space: ")
+print("Through the gap")
+a = raw_input("Enter the coordinates of the 1-th point: ")
+b = raw_input("Enter the coordinates of the 2-nd point: ")
+n = int(n)
+a = a.split() 
+b = b.split()
+if len(a) != n or len(b) != n: 
+	print("Invalid input!") 
+	exit()
+
+sum_sqr = 0
+for i, j in zip(a,b):
+	sum_sqr += (int(i)-int(j))**2 # Appy the formula for the distance between points
+distance = math.sqrt(sum_sqr)
+print("Distance between points: %.2f" % distance)
+print
+
+import math
+print "General view of the equation of a line: A*x+B*y+C=0."
+# A and B are the coordinates of the normal vector
+# There are 3 types of location of lines in the plane. 
+print "We calculate the angle between lines in the plane."
+a1 = float(raw_input("A1= "))
+b1 = float(raw_input("B1= "))
+c1 = float(raw_input("C1= "))
+a2 = float(raw_input("A2= "))
+b2 = float(raw_input("B2= "))
+c2 = float(raw_input("C2= "))
+if a1/a2 == b1/b2:
+        print "Direct parallel"
+elif a1 * a2 + b1 * b2 == 0:
+        print "Direct perpendicular"
+else:
+        # There is a known formulary between 2 lines
+        n = a1 * a2 + b1 * b2
+        m = math.sqrt(a1 ** 2 + b1 ** 2) * math.sqrt(a2 ** 2 + b2 ** 2)
+        e = abs(n/m)
+        e1 = math.acos(e)
+        print ("The angle between lines in the plane: %.2f" % e1)
